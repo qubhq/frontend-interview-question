@@ -4,7 +4,6 @@ import type { Task, FilterType } from "../../types/Task";
 import "./index.css";
 
 // PART 1: This component has bugs that need fixing!
-// The bugs are subtle - the code runs without errors but doesn't work correctly
 const TaskList: React.FC<{
   tasks: Task[];
   onToggleTask: (id: number) => void;
@@ -17,14 +16,6 @@ const TaskList: React.FC<{
     setTotalCount(tasks.length);
   }, []);
 
-  const handleToggleTask = (id: number) => {
-    const task = tasks.find((t) => t.id === id);
-    if (task) {
-      task.completed = !task.completed;
-      onToggleTask(id);
-    }
-  };
-
   return (
     <div className="task-list">
       <div className="task-stats">
@@ -36,7 +27,7 @@ const TaskList: React.FC<{
         <div
           key={task.id}
           className="task-card"
-          onClick={() => handleToggleTask(task.id)}
+          onClick={() => onToggleTask(task.id)}
         >
           <div className="task-content">
             <span className={task.completed ? "completed" : ""}>
@@ -74,7 +65,6 @@ const TaskManager: React.FC<{
       <header className="task-header">
         <h1>Personal Task Manager</h1>
         <nav className="category-nav">
-          <Link to="/">All Tasks</Link>
           <Link to="/category/learning">Learning</Link>
           <Link to="/category/development">Development</Link>
           <Link to="/category/deployment">Deployment</Link>

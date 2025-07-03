@@ -39,15 +39,16 @@ const initialTasks: Task[] = [
   { id: 6, title: "Learn TypeScript", completed: false, category: "learning" },
 ];
 
+// PART 1: This component has bugs that need fixing!
 function App() {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
 
   const toggleTask = (id: number) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task,
-      ),
-    );
+    const task = tasks.find((t) => t.id === id);
+    if (task) {
+      task.completed = !task.completed;
+    }
+    setTasks(tasks);
   };
 
   return (

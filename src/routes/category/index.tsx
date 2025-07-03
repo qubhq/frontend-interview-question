@@ -4,7 +4,7 @@ import type { FilterType, Task } from "../../types/Task";
 import "./category.css";
 
 // PART 4: This component needs to be extended with new features
-// Candidates need to implement category filtering and add new functionality
+//TODO: implement category filtering and add new functionality
 const CategoryPage: React.FC<{
   tasks: Task[];
   toggleTask: (id: number) => void;
@@ -16,13 +16,13 @@ const CategoryPage: React.FC<{
 
   // TODO: Implement category filtering logic
   const getCategoryTasks = (): Task[] => {
-    // Candidate needs to implement:
+    // To implement:
     // 1. Filter tasks by categoryId from URL params
     // 2. Apply search term filtering
     // 3. Apply completion status filtering
     // 4. Handle edge cases (invalid category, no tasks, etc.)
 
-    return tasks; // Currently returns all tasks - needs implementation!
+    return tasks;
   };
 
   const handleToggleTask = (id: number) => {
@@ -98,12 +98,9 @@ const CategoryPage: React.FC<{
         )}
       </div>
 
-      {/* TODO: Candidates should add new features here such as:
+      {/* TODO: should add new features here such as:
           - Add new task form for this category
-          - Task priority levels
-          - Due dates
           - Task notes/descriptions
-          - Bulk actions (mark all complete, delete completed, etc.)
       */}
       <div className="category-actions">
         <p className="todo-note">

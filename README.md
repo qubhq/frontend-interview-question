@@ -4,8 +4,8 @@
 This is a live coding interview challenge designed for React internship candidates. The challenge involves working with a **Personal Task Manager** application built with **TypeScript**, **React 19**, and **React Router v7**.
 
 ## Time Allocation
-- **Interns**: Maximum 2 hours
-- **Experienced Developers**: Under 1 hour
+- Maximum 2 hours
+- Do as much as you can. There is no pass or fail!
 
 ## Technologies Used
 - TypeScript
@@ -26,20 +26,17 @@ This is a live coding interview challenge designed for React internship candidat
 This challenge consists of **4 parts** that test different aspects of React development:
 
 ### Part 1: Debug React Code (20-30 minutes)
-**Location**: `src/routes/index/index.tsx` - `TaskList` component
+**Locations**: `src/routes/index/index.tsx` and `src/app.tsx`
 
 **Problem**: The `TaskList` component appears to work but has subtle bugs that prevent it from functioning correctly. The code compiles and runs without console errors, but the behavior is wrong.
 
 **Bugs to Find & Fix**:
-1. **useEffect Dependency Issue**: The task statistics don't update when tasks change
-2. **State Mutation Bug**: Toggling task completion doesn't trigger re-renders properly
+1. Toggling task completion doesn't update
+2. Marking a task as completed doesn't update how many are completed in the display: `Completed: 2 / 6`
 
 **What You Need to Do**:
 - Identify why the completed task count doesn't update
 - Fix the task toggle functionality so it works correctly
-- Ensure proper React state management principles
-
-**Expected Outcome**: Task statistics update correctly and task toggling works as expected.
 
 ---
 

@@ -17,9 +17,8 @@
   color: #333;
 }
 
-/* BUG: Navigation layout is broken */
 .category-nav {
-  display: block; /* Should be flex for proper layout */
+  display: block;
   gap: 10px;
 }
 
@@ -38,20 +37,19 @@
   background-color: #e0e0e0;
 }
 
-/* BUG: Controls layout issues */
 .task-controls {
-  display: block; /* Should be flex */
+  display: block;
   margin-bottom: 20px;
   gap: 15px;
 }
 
 .search-input {
-  width: 100%; /* Should have max-width for better layout */
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
-  margin-bottom: 10px; /* Creates spacing issues */
+  margin-bottom: 10px;
 }
 
 .filter-select {
@@ -60,7 +58,7 @@
   border-radius: 4px;
   font-size: 16px;
   background-color: white;
-  width: 100%; /* Should be auto width */
+  width: 100%;
 }
 
 .task-list {
@@ -83,10 +81,9 @@
   color: #495057;
 }
 
-/* BUG: Task card layout is completely broken */
 .task-card {
-  display: block; /* Should be flex for proper layout */
-  width: 100%; /* Should have max-width */
+  display: block;
+  width: 100%;
   padding: 15px;
   margin: 5px 0;
   border: 1px solid #ddd;
@@ -101,9 +98,8 @@
   border-color: #007bff;
 }
 
-/* BUG: Content and actions layout broken */
 .task-content {
-  flex: 1; /* Won't work without parent being flex */
+  flex: 1;
   text-align: left;
 }
 
@@ -159,11 +155,11 @@
   }
 
   .category-nav {
-    flex-direction: column; /* Won't work since parent isn't flex */
+    flex-direction: column;
   }
 
   .task-controls {
-    flex-direction: column; /* Won't work since parent isn't flex */
+    flex-direction: column;
   }
 
   .search-input,
