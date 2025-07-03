@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router";
 import type { Task, FilterType } from "../../types/Task";
 import "./index.css";
@@ -12,17 +12,15 @@ const TaskList: React.FC<{
   const [completedCount, setCompletedCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
 
-  // BUG 1: Missing dependency in useEffect - this won't update when tasks change
   useEffect(() => {
     setCompletedCount(tasks.filter((task) => task.completed).length);
     setTotalCount(tasks.length);
-  }, []); // Missing 'tasks' dependency!
+  }, []);
 
   const handleToggleTask = (id: number) => {
-    // BUG 2: Direct mutation - this won't trigger re-render properly
     const task = tasks.find((t) => t.id === id);
     if (task) {
-      task.completed = !task.completed; // Direct mutation!
+      task.completed = !task.completed;
       onToggleTask(id);
     }
   };
@@ -66,15 +64,10 @@ const TaskManager: React.FC<{
   const [filter, setFilter] = useState<FilterType>("all");
 
   // TODO: Implement this function to filter tasks based on search and filter
-  const getFilteredTasks = (): Task[] => {
-    // Candidate needs to implement filtering logic here
-    // Should filter by both searchTerm (title contains) and filter (completed status)
-    return tasks; // Currently returns all tasks - needs implementation!
-  };
-
-  const handleToggleTask = (id: number) => {
-    toggleTask(id);
-  };
+  const filteredTasks = useMemo(() => {
+    // Should filter by both searchTerm (title contains and ignores casing) and filter (completed status)
+    return tasks;
+  }, [tasks]);
 
   return (
     <div className="task-manager">
@@ -95,7 +88,6 @@ const TaskManager: React.FC<{
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
-          // TODO: Connect to search functionality in getFilteredTasks
         />
         <select
           value={filter}
@@ -108,7 +100,7 @@ const TaskManager: React.FC<{
         </select>
       </div>
 
-      <TaskList tasks={getFilteredTasks()} onToggleTask={handleToggleTask} />
+      <TaskList tasks={filteredTasks} onToggleTask={toggleTask} />
     </div>
   );
 };
