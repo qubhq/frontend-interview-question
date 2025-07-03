@@ -8,6 +8,17 @@ This is a live coding interview challenge designed for React internship candidat
 - **Do as much as you can. There is no pass or fail!**
 - **Remember: This is a learning experience, not a test. We want to see your thought process and problem-solving approach.**
 
+## Resources & Guidelines
+**You are encouraged to use any resources you need, including:**
+- 🌐 **Google** and other search engines
+- 📚 **Documentation** (React, TypeScript, MDN, etc.)
+- 💻 **Stack Overflow** and other developer forums
+- 🔍 **Browser Developer Tools** for debugging
+
+**❌ However, please DO NOT use AI tools** (ChatGPT, Copilot, Claude, etc.) during this challenge.
+
+We want to see your authentic problem-solving approach and how you work with real-world development resources.
+
 ## Technologies Used
 - TypeScript
 - React 19
@@ -39,10 +50,11 @@ This challenge consists of **4 parts** that test different aspects of React deve
 - The useEffect hook has a dependency issue that prevents it from re-running when tasks change
 
 **What You Need to Do**:
-- Look at the `useEffect` in the `TaskList` component - what's missing from the dependency array?
-- Fix the dependency array so the completed count updates when tasks change
+- Examine the `useEffect` in the `TaskList` component
+- Identify why the completed count doesn't update when tasks change
+- Fix the issue so the count updates properly
 
-**💡 Hint**: Think about what data the useEffect depends on to calculate the completed count.
+**💡 Hint**: Consider what data the useEffect needs to recalculate the completed count.
 
 **If you can't figure it out, you can skip it and move on to Part 1b** - they're independent bugs.
 
@@ -54,14 +66,11 @@ This challenge consists of **4 parts** that test different aspects of React deve
 - This is a classic React state mutation bug that's very common for beginners
 
 **What You Need to Do**:
-- Look at the `toggleTask` function in `src/app.tsx`
-- Identify why directly mutating the task object doesn't work in React
-- Fix the function to properly update state without mutation
+- Examine the `toggleTask` function in `src/app.tsx`
+- Identify why the current approach doesn't work in React
+- Fix the function to properly update state
 
-**💡 Hints**: 
-- React uses `Object.is()` to compare state - mutating objects won't trigger re-renders
-- You need to create a new array with a new object for the updated task
-- Consider using `map()` to create a new array with the updated task
+**💡 Hint**: Think about how React detects state changes and what happens when you modify objects directly.
 
 **If you can't figure out the state mutation issue, you can skip it and move on to Part 2** - but this is a fundamental React concept worth understanding!
 
@@ -73,19 +82,19 @@ This challenge consists of **4 parts** that test different aspects of React deve
 **Problem**: The CSS has multiple layout issues that make the interface look broken and unprofessional.
 
 **Issues to Fix**:
-1. **Navigation Layout**: Category navigation should be properly aligned using flexbox
+1. **Navigation Layout**: Category navigation should be properly aligned
 2. **Controls Layout**: Search and filter controls should be side-by-side, not stacked
-3. **Task Card Layout**: Task cards should use flexbox for proper content/action alignment
+3. **Task Card Layout**: Task cards should properly align content and actions
 4. **Responsive Issues**: Mobile layout should work correctly
 
 **What You Need to Do**:
-- Fix the `.category-nav` to use proper flexbox layout
+- Fix the `.category-nav` to use proper layout alignment
 - Fix the `.task-controls` to display search and filter side-by-side
 - Fix the `.task-card` to properly align content and actions
 - Ensure responsive design works on mobile devices
 
 **💡 Tips**: 
-- Use `display: flex` and `justify-content` properties
+- Consider modern CSS layout techniques for alignment
 - Check the browser's developer tools to see how elements are currently positioned
 - Test on different screen sizes
 
@@ -109,7 +118,7 @@ This challenge consists of **4 parts** that test different aspects of React deve
   - Handle edge cases (empty search, no results, etc.)
 
 **Requirements**:
-- Search should be case-insensitive and match task titles (hint: use `.toLowerCase()` and `.includes()`)
+- Search should be case-insensitive and match task titles
 - Filter dropdown should work correctly:
   - "All Tasks": Show all tasks
   - "Completed": Show only completed tasks  
@@ -119,8 +128,8 @@ This challenge consists of **4 parts** that test different aspects of React deve
 
 **💡 Tips**:
 - Start with just the search functionality, then add the filter
-- Use `tasks.filter()` to create a new filtered array
-- Remember that "pending" means `completed: false`
+- Consider how to create a new filtered array from the original tasks
+- Remember that "pending" means incomplete tasks
 
 **If the logic gets complex, implement one filter at a time** - search first, then status filter, then combine them.
 
@@ -138,16 +147,16 @@ This challenge consists of **4 parts** that test different aspects of React deve
 **What You Need to Do**:
 
 #### 4a. Implement Category Filtering (Focus on this first)
-- Look for the `getCategoryTasks()` function in the CategoryPage component
+- Look for the `categoryTasks` variable that uses `useMemo` function in the CategoryPage component
 - Implement the filtering logic to:
-  - Filter tasks by the `categoryId` from URL parameters (hint: `task.category === categoryId`)
+  - Filter tasks by the category from URL parameters
   - Apply search term filtering within the category (similar to Part 3)
   - Apply completion status filtering (similar to Part 3)
   - Handle invalid categories gracefully
 
 **💡 Tips for 4a**:
 - Start with just category filtering, then add search and status filters
-- Use `useParams()` to get the `categoryId` from the URL
+- Consider how to access URL parameters in React Router
 - The category filtering is similar to the search filtering from Part 3
 
 **If you can't figure out the filtering logic, you can skip it and move on to 4b** - they're independent features.
@@ -174,33 +183,6 @@ Create a new component/form that allows users to:
 **Expected Outcome**: At minimum, functional category filtering. New task creation is a bonus!
 
 ---
-
-## Evaluation Criteria
-
-### Part 1 - Debugging (25%)
-- [ ] Identifies useEffect dependency issue
-- [ ] Fixes state mutation problem
-- [ ] Demonstrates understanding of React lifecycle
-- [ ] Code follows React best practices
-
-### Part 2 - CSS (20%)
-- [ ] Fixes flexbox layout issues
-- [ ] Implements responsive design correctly
-- [ ] Maintains visual consistency
-- [ ] Uses modern CSS practices
-
-### Part 3 - Logic Implementation (25%)
-- [ ] Implements correct filtering logic
-- [ ] Handles edge cases appropriately
-- [ ] Code is clean and readable
-- [ ] Uses proper TypeScript types
-
-### Part 4 - Feature Development (30%)
-- [ ] Implements category filtering correctly
-- [ ] Creates functional new task form
-- [ ] Integrates new features seamlessly
-- [ ] Demonstrates React Router understanding
-- [ ] Maintains code quality and consistency
 
 ## Tips for Success
 

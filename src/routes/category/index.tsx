@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router";
 import type { FilterType, Task } from "../../types/Task";
 import "./category.css";
@@ -15,7 +15,7 @@ const CategoryPage: React.FC<{
   const [filter, setFilter] = useState<FilterType>("all");
 
   // TODO: Implement category filtering logic
-  const getCategoryTasks = (): Task[] => {
+  const categoryTasks = useMemo((): Task[] => {
     // To implement:
     // 1. Filter tasks by categoryId from URL params
     // 2. Apply search term filtering
@@ -23,13 +23,11 @@ const CategoryPage: React.FC<{
     // 4. Handle edge cases (invalid category, no tasks, etc.)
 
     return tasks;
-  };
+  }, [tasks]);
 
   const handleToggleTask = (id: number) => {
     toggleTask(id);
   };
-
-  const categoryTasks = getCategoryTasks();
 
   return (
     <div className="category-page">
