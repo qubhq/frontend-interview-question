@@ -1,5 +1,7 @@
-/* PART 2: CSS Issues that need fixing! */
-/* The layout is broken and doesn't match the intended design */
+/* PART 2: CSS Layout Issues that need fixing! */
+/* BUG: Several layout elements are not displaying as intended */
+/* HINT: Look for elements that should be side-by-side but aren't */
+/* HINT: Consider modern CSS layout techniques for proper alignment */
 
 .task-manager {
   max-width: 1200px;
@@ -17,9 +19,10 @@
   color: #333;
 }
 
+/* BUG: Navigation links should be properly aligned */
 .category-nav {
-  display: block;
-  gap: 10px;
+  display: block; /* BUG: This doesn't align the links properly */
+  gap: 10px; /* This gap property won't work with current display */
 }
 
 .category-nav a {
@@ -37,10 +40,11 @@
   background-color: #e0e0e0;
 }
 
+/* BUG: Search and filter controls should be side-by-side */
 .task-controls {
-  display: block;
+  display: block; /* BUG: This stacks the controls vertically */
   margin-bottom: 20px;
-  gap: 15px;
+  gap: 15px; /* This gap won't work with current display */
 }
 
 .search-input {
@@ -81,8 +85,9 @@
   color: #495057;
 }
 
+/* BUG: Task card content and actions don't align properly */
 .task-card {
-  display: block;
+  display: block; /* BUG: This doesn't allow proper content/action alignment */
   width: 100%;
   padding: 15px;
   margin: 5px 0;
@@ -123,10 +128,10 @@
   margin-left: 10px;
 }
 
-/* BUG: Actions positioning is wrong */
+/* BUG: Actions positioning doesn't work well with the card layout */
 .task-actions {
-  float: right; /* Outdated approach, should use flexbox */
-  margin-top: 20px; /* Creates spacing issues */
+  float: right; /* BUG: This positioning approach has issues */
+  margin-top: 20px; /* BUG: Creates unwanted spacing */
 }
 
 .toggle-btn {

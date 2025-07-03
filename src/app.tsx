@@ -39,16 +39,18 @@ const initialTasks: Task[] = [
   { id: 6, title: "Learn TypeScript", completed: false, category: "learning" },
 ];
 
-// PART 1: This component has bugs that need fixing!
+// PART 1b: This component has a bug that prevents task toggling from working
+// BUG: Clicking on tasks doesn't actually toggle their completion status
+// HINT: Think about how React detects state changes
 function App() {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
 
   const toggleTask = (id: number) => {
     const task = tasks.find((t) => t.id === id);
     if (task) {
-      task.completed = !task.completed;
+      task.completed = !task.completed; // BUG: Direct mutation
     }
-    setTasks(tasks);
+    setTasks(tasks); // BUG: Same array reference
   };
 
   return (

@@ -3,7 +3,9 @@ import { Link } from "react-router";
 import type { Task, FilterType } from "../../types/Task";
 import "./index.css";
 
-// PART 1: This component has bugs that need fixing!
+// PART 1a: This component has a bug that prevents the completed count from updating
+// BUG: The completed count display doesn't update when tasks change
+// HINT: Think about what data this useEffect depends on to calculate the counts
 const TaskList: React.FC<{
   tasks: Task[];
   onToggleTask: (id: number) => void;
@@ -54,9 +56,13 @@ const TaskManager: React.FC<{
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState<FilterType>("all");
 
-  // TODO: Implement this function to filter tasks based on search and filter
+  // TODO: Implement filtering logic here
+  // HINT: You need to filter the tasks array based on two criteria:
+  // 1. Search term: Does the task title contain the search term? (case-insensitive)
+  // 2. Filter status: Does the task match the selected filter (all/completed/pending)?
   const filteredTasks = useMemo(() => {
-    // Should filter by both searchTerm (title contains and ignores casing) and filter (completed status)
+    // Start with all tasks, then apply filters step by step
+    // Remember: "pending" means NOT completed
     return tasks;
   }, [tasks]);
 

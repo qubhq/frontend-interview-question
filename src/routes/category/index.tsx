@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router";
 import type { FilterType, Task } from "../../types/Task";
 import "./category.css";
 
-// PART 4: This component needs to be extended with new features
-//TODO: implement category filtering and add new functionality
+// PART 4: This component needs category filtering and new features
+// BUG: Currently shows ALL tasks instead of just the category's tasks
+// HINT: The categoryId comes from the URL - how do you filter tasks by category?
 const CategoryPage: React.FC<{
   tasks: Task[];
   toggleTask: (id: number) => void;
@@ -15,13 +16,12 @@ const CategoryPage: React.FC<{
   const [filter, setFilter] = useState<FilterType>("all");
 
   // TODO: Implement category filtering logic
+  // HINT: Think about this step by step:
+  // 1. Which tasks belong to this category?
+  // 2. Of those, which match the search term?
+  // 3. Of those, which match the completion filter?
   const categoryTasks = useMemo((): Task[] => {
-    // To implement:
-    // 1. Filter tasks by categoryId from URL params
-    // 2. Apply search term filtering
-    // 3. Apply completion status filtering
-    // 4. Handle edge cases (invalid category, no tasks, etc.)
-
+    // Start with all tasks, then filter step by step
     return tasks;
   }, [tasks]);
 
