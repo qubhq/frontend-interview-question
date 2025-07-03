@@ -58,20 +58,10 @@ const TaskList: React.FC<{
 };
 
 // PART 3: This component needs search and filter logic implemented
-const TaskManager: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, title: "Learn React", completed: false, category: "learning" },
-    { id: 2, title: "Build an app", completed: false, category: "development" },
-    { id: 3, title: "Write tests", completed: true, category: "development" },
-    {
-      id: 4,
-      title: "Deploy to production",
-      completed: false,
-      category: "deployment",
-    },
-    { id: 5, title: "Review code", completed: true, category: "development" },
-  ]);
-
+const TaskManager: React.FC<{
+  tasks: Task[];
+  toggleTask: (id: number) => void;
+}> = ({ tasks, toggleTask }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState<FilterType>("all");
 
@@ -83,11 +73,7 @@ const TaskManager: React.FC = () => {
   };
 
   const handleToggleTask = (id: number) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task,
-      ),
-    );
+    toggleTask(id);
   };
 
   return (
@@ -127,8 +113,14 @@ const TaskManager: React.FC = () => {
   );
 };
 
-function Index() {
-  return <TaskManager />;
+function Index({
+  tasks,
+  toggleTask,
+}: {
+  tasks: Task[];
+  toggleTask: (id: number) => void;
+}) {
+  return <TaskManager tasks={tasks} toggleTask={toggleTask} />;
 }
 
 export default Index;

@@ -5,22 +5,11 @@ import "./category.css";
 
 // PART 4: This component needs to be extended with new features
 // Candidates need to implement category filtering and add new functionality
-const CategoryPage: React.FC = () => {
+const CategoryPage: React.FC<{
+  tasks: Task[];
+  toggleTask: (id: number) => void;
+}> = ({ tasks, toggleTask }) => {
   const { categoryId } = useParams();
-
-  // Same task data as main page - in a real app this would be shared state/context
-  const [tasks, setTasks] = useState<Task[]>([
-    { id: 1, title: "Learn React", completed: false, category: "learning" },
-    { id: 2, title: "Build an app", completed: false, category: "development" },
-    { id: 3, title: "Write tests", completed: true, category: "development" },
-    {
-      id: 4,
-      title: "Deploy to production",
-      completed: false,
-      category: "deployment",
-    },
-    { id: 5, title: "Review code", completed: true, category: "development" },
-  ]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState<FilterType>("all");
@@ -37,11 +26,7 @@ const CategoryPage: React.FC = () => {
   };
 
   const handleToggleTask = (id: number) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task,
-      ),
-    );
+    toggleTask(id);
   };
 
   const categoryTasks = getCategoryTasks();
