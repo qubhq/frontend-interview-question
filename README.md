@@ -75,31 +75,47 @@ This challenge consists of **4 parts** that test different aspects of React deve
 ---
 
 ### Part 2: Fix CSS Layout Issues (15-20 minutes)
+
 **Location**: `src/routes/index/index.css`
 
 **Problem**: The CSS has multiple layout issues that make the interface look broken and unprofessional.
 
 **Issues to Fix**:
+
 1. **Navigation Layout**: Category navigation should be properly aligned
 2. **Controls Layout**: Search and filter controls should be side-by-side, not stacked
 3. **Task Card Layout**: Task cards should properly align content and actions
 4. **Responsive Issues**: Mobile layout should work correctly
 
 **What You Need to Do**:
+
 - Fix the `.category-nav` to use proper layout alignment
 - Fix the `.task-controls` to display search and filter side-by-side
 - Fix the `.task-card` to properly align content and actions
 - Ensure responsive design works on mobile devices
 
-**💡 Tips**: 
+**💡 Tips**:
+
 - Consider modern CSS layout techniques for alignment
 - Check the browser's developer tools to see how elements are currently positioned
 - Test on different screen sizes
 
-**If you can't figure out all the CSS issues, focus on the most obvious ones first** - even partial improvements are valuable!
+**If you can't figure out all the CSS issues, focus on the most obvious ones first** - even partial improvements are
+valuable!
 
 **Expected Outcome**: Clean, professional layout that matches modern web design standards.
 
+Desktop:
+![Desktop Layout](https://imagedelivery.net/gEF-8D7iucWTdKd-kv_ghw/a8f08609-0c67-4479-29e3-3613e2887a00/highquality)
+*(If images don't load,
+click [here](https://imagedelivery.net/gEF-8D7iucWTdKd-kv_ghw/a8f08609-0c67-4479-29e3-3613e2887a00/highquality) to view
+desktop layout directly)*
+
+Mobile:
+![Mobile Layout](https://imagedelivery.net/gEF-8D7iucWTdKd-kv_ghw/37775987-534f-4928-3a1f-17749e5a3100/highquality)
+*(If images don't load,
+click [here](https://imagedelivery.net/gEF-8D7iucWTdKd-kv_ghw/37775987-534f-4928-3a1f-17749e5a3100/highquality) to view
+mobile layout directly)*
 ---
 
 ### Part 3: Implement Search and Filter Logic (30-40 minutes)
