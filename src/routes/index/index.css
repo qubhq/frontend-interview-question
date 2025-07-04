@@ -3,6 +3,7 @@
 /* HINT: Look for elements that should be side-by-side but aren't */
 /* HINT: Consider modern CSS layout techniques for proper alignment */
 
+/* BUG: Not enough spacing between elements */
 .task-manager {
   max-width: 1200px;
   margin: 0 auto;
@@ -14,7 +15,6 @@
 }
 
 .task-header {
-  margin-bottom: 30px;
 }
 
 .task-header h1 {
@@ -32,7 +32,6 @@
 .category-nav a {
   display: inline-block;
   padding: 8px 16px;
-  margin: 5px;
   background-color: #f0f0f0;
   color: #333;
   text-decoration: none;
@@ -44,20 +43,18 @@
   background-color: #e0e0e0;
 }
 
-/* BUG: Search and filter controls should be side-by-side */
+/* BUG: Search and filter controls should be side-by-side and there should be space between them */
 .task-controls {
   display: block; /* BUG: This stacks the controls vertically */
-  margin-bottom: 20px;
-  gap: 15px; /* This gap won't work with current display */
 }
 
 .search-input {
+  box-sizing: border-box;
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
-  margin-bottom: 10px;
 }
 
 .filter-select {
@@ -72,14 +69,13 @@
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .task-stats {
   background-color: #f8f9fa;
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -92,9 +88,10 @@
 /* BUG: Task card content and actions don't align properly */
 .task-card {
   display: block; /* BUG: This doesn't allow proper content/action alignment */
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 100%;
   padding: 15px;
-  margin: 5px 0;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: white;
@@ -108,8 +105,11 @@
 }
 
 .task-content {
+  display: block; /* BUG: This doesn't allow proper content/action alignment */
   flex: 1;
   text-align: left;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .task-content span {
@@ -129,22 +129,17 @@
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 12px;
-  margin-left: 10px;
 }
 
-/* BUG: Actions positioning doesn't work well with the card layout */
-.task-actions {
-  float: right; /* BUG: This positioning approach has issues */
-  margin-top: 20px; /* BUG: Creates unwanted spacing */
-}
+
 
 .toggle-btn {
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
   font-size: 14px;
   display: flex;
@@ -167,13 +162,17 @@
     flex-direction: column;
   }
 
+  /* BUG: Text is not aligned properly on mobile */
+  .category-nav a {
+    text-align: left;
+  }
+
   .task-controls {
     flex-direction: column;
   }
 
   .search-input,
   .filter-select {
-    width: 100%;
-    margin-bottom: 10px;
+    max-width: 100%;
   }
 }

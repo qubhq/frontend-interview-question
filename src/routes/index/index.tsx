@@ -39,9 +39,7 @@ const TaskList: React.FC<{
               <span className="task-category">#{task.category}</span>
             )}
           </div>
-          <div className="task-actions">
-            <button className="toggle-btn">{task.completed ? "✓" : "○"}</button>
-          </div>
+          <button className="toggle-btn">{task.completed ? "✓" : "○"}</button>
         </div>
       ))}
     </div>
