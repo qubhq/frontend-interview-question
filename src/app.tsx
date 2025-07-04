@@ -48,9 +48,9 @@ function App() {
   const toggleTask = (id: number) => {
     const task = tasks.find((t) => t.id === id);
     if (task) {
-      task.completed = !task.completed; // BUG: Direct mutation
+      task.completed = !task.completed;
     }
-    setTasks(tasks); // BUG: Same array reference
+    setTasks(tasks);
   };
 
   return (

@@ -28,10 +28,8 @@ We want to see your authentic problem-solving approach and how you work with rea
 
 ## Getting Started
 
-1. Clone this repository
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
-4. Open your browser to `http://localhost:5173`
+1. The url you see in the `Program Output` on the right, you can open in a new tab to make it easier to work with
+2. You can press `F12` or right click and press `Inspect Element` to open the DevTools to make it easier to work with.
 
 ## Challenge Structure
 
@@ -115,7 +113,6 @@ This challenge consists of **4 parts** that test different aspects of React deve
   - Filter tasks by search term (case-insensitive title matching)
   - Filter tasks by completion status (all/completed/pending)
   - Combine both filters correctly
-  - Handle edge cases (empty search, no results, etc.)
 
 **Requirements**:
 - Search should be case-insensitive and match task titles
@@ -124,7 +121,6 @@ This challenge consists of **4 parts** that test different aspects of React deve
   - "Completed": Show only completed tasks  
   - "Pending": Show only incomplete tasks
 - Both search and filter should work together
-- Handle empty states gracefully
 
 **💡 Tips**:
 - Start with just the search functionality, then add the filter
@@ -137,7 +133,7 @@ This challenge consists of **4 parts** that test different aspects of React deve
 
 ---
 
-### Part 4: Add New Feature with Routing (40-50 minutes)
+### Part 4: Add New Feature (40-50 minutes)
 **Location**: `src/routes/category/index.tsx`
 
 **Problem**: The category page exists but doesn't filter tasks by category. You need to implement the category filtering logic and add a new feature.
@@ -152,7 +148,6 @@ This challenge consists of **4 parts** that test different aspects of React deve
   - Filter tasks by the category from URL parameters
   - Apply search term filtering within the category (similar to Part 3)
   - Apply completion status filtering (similar to Part 3)
-  - Handle invalid categories gracefully
 
 **💡 Tips for 4a**:
 - Start with just category filtering, then add search and status filters
