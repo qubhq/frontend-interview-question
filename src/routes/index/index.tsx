@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import type { Task, FilterType } from "../../types/Task";
 import "./index.css";
 
-// PART 1a: This component has a bug that prevents the completed count from updating
+// PART 1b: This component has a bug that prevents the completed count from updating
 // BUG: The completed count display doesn't update when tasks change
 // HINT: Think about what data this useEffect depends on to calculate the counts
 const TaskList: React.FC<{

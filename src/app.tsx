@@ -39,7 +39,7 @@ const initialTasks: Task[] = [
   { id: 6, title: "Learn TypeScript", completed: false, category: "learning" },
 ];
 
-// PART 1b: This component has a bug that prevents task toggling from working
+// PART 1a: This component has a bug that prevents task toggling from working
 // BUG: Clicking on tasks doesn't actually toggle their completion status
 // HINT: Think about how React detects state changes
 function App() {

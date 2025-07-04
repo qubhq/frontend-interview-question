@@ -40,23 +40,7 @@ This challenge consists of **4 parts** that test different aspects of React deve
 
 **Problem**: There are two subtle but critical bugs that prevent the task management from working correctly. The code compiles and runs without console errors, but the behavior is wrong.
 
-#### Part 1a: TaskList Component Bug (10-15 minutes)
-**Location**: `src/routes/index/index.tsx` - Focus on the `TaskList` component
-
-**Bug to Find & Fix**:
-- The completed task count display (`Completed: 2 / 6`) doesn't update when you toggle tasks
-- The useEffect hook has a dependency issue that prevents it from re-running when tasks change
-
-**What You Need to Do**:
-- Examine the `useEffect` in the `TaskList` component
-- Identify why the completed count doesn't update when tasks change
-- Fix the issue so the count updates properly
-
-**💡 Hint**: Consider what data the useEffect needs to recalculate the completed count.
-
-**If you can't figure it out, you can skip it and move on to Part 1b** - they're independent bugs.
-
-#### Part 1b: Toggle Function Bug (15-20 minutes)
+#### Part 1a: Toggle Function Bug (15-20 minutes)
 **Location**: `src/app.tsx` - Focus on the `toggleTask` function
 
 **Bug to Find & Fix**:
@@ -69,6 +53,20 @@ This challenge consists of **4 parts** that test different aspects of React deve
 - Fix the function to properly update state
 
 **💡 Hint**: Think about how React detects state changes and what happens when you modify objects directly.
+
+#### Part 1b: TaskList Component Bug (10-15 minutes)
+**Location**: `src/routes/index/index.tsx` - Focus on the `TaskList` component
+
+**Bug to Find & Fix**:
+- The completed task count display (`Completed: 2 / 6`) doesn't update when you toggle tasks
+- The useEffect hook has a dependency issue that prevents it from re-running when tasks change
+
+**What You Need to Do**:
+- Examine the `useEffect` in the `TaskList` component
+- Identify why the completed count doesn't update when tasks change
+- Fix the issue so the count updates properly
+
+**💡 Hint**: Consider what data the useEffect needs to recalculate the completed count.
 
 **If you can't figure out the state mutation issue, you can skip it and move on to Part 2** - but this is a fundamental React concept worth understanding!
 
